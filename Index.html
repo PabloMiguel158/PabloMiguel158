@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Aplicação</title>
+  <style>
+    /* Estilos CSS */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      color: blue;
+    }
+  </style>
+  <script src="script.js"></script> <!-- Arquivo JavaScript -->
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Página Inicial</a></li>
+        <li><a href="/sobre">Sobre</a></li>
+        <li><a href="/contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1>Bem-vindo à Minha Aplicação</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <?php
+        // Código PHP para processamento de dados e geração de conteúdo dinâmico
+        $nome = "John Doe";
+        echo "<p>Olá, " . $nome . "!</p>";
+      ?>
+    </section>
+
+    <section>
+      <h2>Sobre</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <script>
+        // Código JavaScript para interatividade na seção Sobre
+        console.log("Esta é a seção Sobre.");
+      </script>
+    </section>
+
+    <section>
+      <h2>Contato</h2>
+      <form action="processar_contato.php" method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" required></textarea>
+
+        <input type="submit" value="Enviar">
+      </form>
+      <?php
+        // Código PHP para processar o formulário de contato
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+          $nome = $_POST['nome'] ?? '';
+          $email = $_POST['email'] ?? '';
+          $mensagem = $_POST['mensagem'] ?? '';
+          // Código para processar e enviar a mensagem de contato
+        }
+      ?>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Minha Aplicação. Todos os direitos reservados.</p>
+    <?php
+      // Código PHP para processamento adicional no rodapé
+      $anoAtual = date("Y");
+      echo "<p>Ano atual: " . $anoAtual . "</p>";
+    ?>
+  </footer>
+</body>
+  </html>
+  
